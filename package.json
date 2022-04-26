@@ -1,5 +1,5 @@
 {
-	"name": "preact-custom-element",
+	"name": "@avery42/preact-custom-element",
 	"version": "4.2.1",
 	"description": "Wrap your component up as a custom element",
 	"main": "dist/preact-custom-element.js",
@@ -49,8 +49,7 @@
 		"The Preact Authors (https://preactjs.com)"
 	],
 	"license": "MIT",
-	"bugs": "https://github.com/preactjs/preact-custom-element/issues",
-	"homepage": "https://github.com/preactjs/preact-custom-element",
+	"homepage": "https://github.com/coolavery/preact-custom-element/blob/master/package.json",
 	"peerDependencies": {
 		"preact": "10.x"
 	},
