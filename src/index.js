@@ -6,6 +6,7 @@ export default function register(Component, tagName, propNames, options) {
 		inst._vdomComponent = Component;
 		inst._root =
 			options && options.shadow ? inst.attachShadow({ mode: 'open' }) : inst;
+		inst._options = options;
 		return inst;
 	}
 	PreactElement.prototype = Object.create(HTMLElement.prototype);
@@ -81,6 +82,14 @@ function connectedCallback() {
 		{ ...this._props, context },
 		toVdom(this, this._vdomComponent)
 	);
+
+	// Apply adopted style sheets
+	if (this._options && this._options.adoptedStyleSheets && this.shadowRoot) {
+		this.shadowRoot.adoptedStyleSheets = [
+			...this.shadowRoot.adoptedStyleSheets,
+			...this._options.adoptedStyleSheets,
+		];
+	}
 
 	// Duplicating children fix for {shadow: false}
 	// https://github.com/preactjs/preact-custom-element/pull/61
